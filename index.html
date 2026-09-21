@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visserij De Groot | Hengels & Visbenodigheden</title>
+  <meta name="description" content="Visserij De Groot - hét adres voor professionele hengels, lijnen, aas en alle benodigheden voor uw visvakantie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b6e8c;
+      --primary-dark: #074a5f;
+      --secondary: #1ab7c9;
+      --accent: #f39c12;
+      --dark: #0a2540;
+      --light: #eef7fa;
+      --white: #ffffff;
+      --gray: #6b7c8a;
+      --shadow: 0 10px 40px rgba(11, 110, 140, 0.15);
+      --shadow-lg: 0 25px 60px rgba(10, 37, 64, 0.25);
+      --radius: 18px;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #ffbf47);
+      color: var(--dark);
+      box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(243, 156, 18, 0.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+    }
+
+    header.scrolled .logo {
+      color: var(--primary);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    header.scrolled .nav-links a {
+      color: var(--dark);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 26px;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    header.scrolled .menu-toggle span {
+      background: var(--dark);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(135deg, rgba(10, 37, 64, 0.85), rgba(11, 110, 140, 0.75)),
+        url('https://images.unsplash.com/photo-1502680390469-be75c86b634f?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+      color: var(--white);
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator span {
+      display: block;
+      width: 26px;
+      height: 26px;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .scroll-indicator span::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: var(--white);
+      border-radius: 2px;
+      animation: scrollMove 1.5s infinite;
+    }
+
+    /* ---------- FEATURES ---------- */
+    .features {
+      padding: 90px 0 70px;
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 36px 24px;
+      border-radius: var(--radius);
+      background: var(--light);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .feature-card p {
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    /* ---------- PRODUCTS ---------- */
+    .products {
+      padding: 90px 0;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-img {
+      height: 230px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.08);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .product-info {
+      padding: 24px 26px 28px;
+    }
+
+    .product-category {
+      color: var(--secondary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-info h3 {
+      font-size: 1.3rem;
+      margin: 8px 0 10px;
+      color: var(--dark);
+    }
+
+    .product-info p {
+      color: var(--gray);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price small {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+
+    .add-cart {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .add-cart:hover {
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 8px 20px rgba(11, 110, 140, 0.4);
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about {
+      padding: 90px 0;
+      background: var(--white);
+    }
+
+    .about-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-img {
+      position: relative;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-img .experience {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      background: linear-gradient(135deg, var(--accent), #ffbf47);
+      color: var(--dark);
+      padding: 26px 30px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .about-img .experience strong {
+      display: block;
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .about-text h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    .about-list {
+      margin: 26px 0 34px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .about-list li::before {
+      content: '✓';
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials {
+      padding: 90px 0;
+      background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+      color: var(--white);
+    }
+
+    .testimonials .section-title h2 {
+      color: var(--white);
+    }
+
+    .testimonials .section-title p {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 34px 30px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .stars {
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 22px;
+      font-size: 0.98rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-author h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .testimonial-author small {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ---------- CONTACT / CTA ---------- */
+    .cta {
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      border-radius: 30px;
+      padding: 70px 40px;
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      max-width: 550px;
+      margin: 0 auto 34px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 70px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h3 {
+      color: var(--white);
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-col p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+
+    .footer-col ul a:hover {
+      color: var(--secondary);
+      padding-left: 6px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-4px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 25px;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    @keyframes scrollMove {
+      0% { opacity: 1; top: 4px; }
+      100% { opacity: 0; top: 16px; }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 992px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: var(--transition);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        color: var(--dark) !important;
+        font-size: 1.1rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .products-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+      .section-title h2 { font-size: 2rem; }
+      .cta-box h2 { font-size: 2rem; }
+      .about-img .experience { right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ---------- HEADER / NAVBAR ---------- -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">🎣 Visserij<span>De Groot</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Winkel</a></li>
+          <li><a href="#about">Over ons</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact" class="btn btn-primary" style="padding:10px 26px;">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ---------- HERO ---------- -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Alles voor je perfecte <span>visdag</span></h1>
+      <p>Ontdek professionele hengels, premium lijnen en alles wat je visser-hart hoger gaat laten slaan. Kwaliteit waar vissers al meer dan 25 jaar op vertrouwen.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">Bekijk het assortiment</a>
+        <a href="#about" class="btn btn-outline">Onverhaal</a>
+      </div>
+    </div>
+    <a href="#features" class="scroll-indicator"><span></span></a>
+  </section>
+
+  <!-- ---------- FEATURES ---------- -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚚</div>
+          <h3>Snel thuisbezorgd</h3>
+          <p>Bestelling vandaag besteld, morgen in huis binnen Nederland.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Premium kwaliteit</h3>
+          <p>Alleen geteste apparatuur van toonaangevende merken.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Deskundig advies</h3>
+          <p>Onze vissers staan voor je klaar met eerlijk advies.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">↩️</div>
+          <h3>21 dagen retour</h3>
+          <p>Niet tevreden? Ruilen of terugsturen zonder gedoe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PRODUCTS ---------- -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-title">
+        <h2>Ons Assortiment</h2>
+        <p>Van beginnende vissers tot de doorgewinterde pro: hier vind je de beste uitrusting.</p>
+      </div>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img">
+            <span class="product-badge">Bestseller</span>
+            <img src="https://images.unsplash.com/photo-1390425669210-6d6a4f2b7426?auto=format&fit=crop&w=600&q=80" alt="Koolstof hengel ProX">
+          </div>
+          <div class="product-info">
+            <span class="product-category">Hengels</span>
+            <h3>ProX Carbon Telescopisch</h3>
+            <p>Lichtgewicht koolstof hengel van 240cm, ideaal voor spintvissen op viskweekput en zee.</p>
+            <div class="product-footer">
+              <span class="price">€89,95 <small>€119,95</small></span>
+              <button class="add-cart" title="Aan winkelwagen toevoegen">🛒</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1521412664486-e962be91798b?auto=format&fit=crop&w=600&q=80" alt="Molenspoel Set">
+          </div>
+          <div class="product-info">
+            <span class="product-category">Molen</span>
+            <h3>SteelForce 4000 Molenspoel</h3>
+            <p>Smoel draaimolen met 11 kogellagers en krachtige rem, perfect voor grote vangsten.</p>
+            <div class="product-footer">
+              <span class="price">€64,50</span>
+              <button class="add-cart" title="Aan winkelwagen toevoegen">🛒</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <span class="product-badge">Nieuw</span>
+            <img src="https://images.unsplash.com/photo-1530269343652-f1b4a3f2d7b6?auto=format&fit=crop&w=600&q=80" alt="Vislijn Set">
+          </div>
+          <div class="product-info">
+            <span class="product-category">Lijnen & Aas</span>
+            <h3>Premium Nylonlijn 300m</h3>
+            <p>Breed assortiment nylon- en gevlechte lijnen in alle diktes plus levend aas.</p>
+            <div class="product-footer">
+              <span class="price">€14,95</span>
+              <button class="add-cart" title="Aan winkelwagen toevoegen">🛒</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1516627146829-7e356bba135d?auto=format&fit=crop&w=600&q=80" alt="Visbak">
+          </div>
+          <div class="product-info">
+            <span class="product-category">Toegang</span>
+            <h3>Fold'n'Go Visbak</h3>
+            <p>Verschrijbare, waterdichte visbak met scheiden rooster voor een nette verwerking.</p>
+            <div class="product-footer">
+              <span class="price">€29,99</span>
+              <button class="add-cart" title="Aan winkelwagen toevoegen">🛒</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <span class="product-badge">Aanbieding</span>
+            <img src="https://images.unsplash.com/photo-1456082456349-23f7f3fb6c15?auto=format&fit=crop&w=600&q=80" alt="Visserstas">
+          </div>
+          <div class="product-info">
+            <span class="product-category">Kleding</span>
+            <h3>Waterafwerpende Vest</h3>
+            <p>Multiple zakken, ademend en lichtgewicht vest tegen wind en regen.</p>
+            <div class="product-footer">
+              <span class="price">€49,95 <small>€69,95</small></span>
+              <button class="add-cart" title="Aan winkelwagen toevoegen">🛒</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1544551763-46a0e4f5052e?auto=format&fit=crop&w=600&q=80" alt="Zonnebril">
+          </div>
+          <div class="product-info">
+            <span class="product-category">Accessoires</span>
+            <h3>Polarisatiebril Angler</h3>
+            <p>UV-400 polarisatiebril om glans van het water weg te nemen en vissen te zien.</p>
+            <div class="product-footer">
+              <span class="price">€34,50</span>
+              <button class="add-cart" title="Aan winkelwagen toevoegen">🛒</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- ABOUT ---------- -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1518169304350-d4bd2f66687a?auto=format&fit=crop&w=700&q=80" alt="Visserij De Groot">
+          <div class="experience"><strong>25+</strong><br>Jaren ervaring</div>
+        </div>
+        <div class="about-text">
+          <h2>Van hobby tot passie, sinds 1999</h2>
+          <p>Visserij De Groot begon als kleine visserskraam aan het IJsselmeer. Wat als hobby startte is uitgegroeid tot een van de meest vertrouwde namen in de Nederlandse visserij.</p>
+          <p>Wij geloven dat een goede visdag begint met goed materiaal. Daarom selecteren wij uitsluitend producten die onze eigen testvissers hebben goedgekeurd.</p>
+          <ul class="about-list">
+            <li>Persoonlijk advies door daadkrachtige vissers</li>
+            <li>Alleen geteste apparatuur van topmerken</li>
+            <li>Veelvoorkomend assortiment voor zoet- en zoutwater</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Neem contact op</a>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ---------- TESTIMONIALS ---------- -->
+  <section class="testimonials" id="reviews">
+    <div class="container">
+      <div class="section-title">
+        <h2>Wat onze klanten zeggen</h2>
+        <p>Meer dan 12.000 tevreden vissers vertrouwen op Visserij De Groot.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"De beste hengel die ik ooit heb gehad. De kwaliteit is ongeëvenaard en de service was uitzonderlijk!"</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jasper">
+            <div>
+              <h4>Jasper van den Berg</h4>
+              <small>Zoutwater visser</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Snelle levering en eerlijk advies op maat. Ik kom hier elke keer weer voor mijn voorraad."</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie">
+            <div>
+              <h4>Sophie Dekker</h4>
+              <small>Spintvisser</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Echt een aanrader voor zowel beginnende als ervaren vissers. Top assortiment en eerlijke prijzen."</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Mark">
+            <div>
+              <h4>Mark Jansen</h4>
+              <small>IJsvisser</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- CTA / CONTACT ---------- -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Klaar voor je volgende vangst?</h2>
+        <p>Bezoek onze winkel of neem vandaag nog contact op voor persoonlijk advies op maat.</p>
+        <a href="mailto:info@visserijdegroot.nl" class="btn btn-primary">✉️ Contacteer ons</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="logo" style="color:#fff;font-size:1.4rem;">🎣 Visserij<span>De Groot</span></h3>
+          <p style="margin-top:16px;">Jouw betrouwbare partner voor alles rondom vissen sinds 1999. Kwaliteit, advies en passie.</p>
+          <div class="social-links">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="YouTube">▶️</a>
+            <a href="#" title="WhatsApp">💬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="#products">Hengels</a></li>
+            <li><a href="#products">Lijnen & Aas</a></li>
+            <li><a href="#products">Molen</a></li>
+            <li><a href="#products">Accessoires</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Bedrijf</h3>
+          <ul>
+            <li><a href="#about">Over ons</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul>
+            <li>📍 Visdijk 12, Enkhuizen</li>
+            <li>📞 +31 (0)255 - 123 456</li>
+            <li>✉️ info@visserijdegroot.nl</li>
+            <li>🕒 Ma-Za: 09:00 - 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Visserij De Groot. Alle voorbehouden. | Ontworpen met 🎣 voor vissers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link =>
+      link.addEventListener('click', () => navLinks.classList.remove('active'))
+    );
+
+    // Add-to-cart feedback
+    document.querySelectorAll('.add-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.textContent = '✓';
+        btn.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
+        setTimeout(() => {
+          btn.textContent = '🛒';
+          btn.style.background = '';
+        }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>
